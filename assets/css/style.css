@@ -93,6 +93,11 @@ body {
   color: #6A6A6A;
   overflow-x: hidden; }
 
+  .dropdown-item:hover{
+    background-color: #f78d15;
+    color: #fff;
+  }
+
 .session-title {
   padding: 30px;
   margin: 0px;
@@ -247,7 +252,7 @@ header .header-top {
         font-size: .7rem;
         font-weight: 600; }
     header .header-top .bonto ul .donta-btn {
-      background-color: #ff5722;
+      background-color: #f78d15;
       color: #FFF;
       padding: 5px 15px;
       border-radius: 5px; }
@@ -482,7 +487,7 @@ header .headwe-nav {
     .causes .cuses-row .caus-img img {
       width: 120px;
       border-radius: 50%;
-      border: 5px solid #ff5722;
+      border: 5px solid #f78d15;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       margin-bottom: 20px; }
   .causes .cuses-row .caus-info .left-info {
@@ -555,7 +560,7 @@ header .headwe-nav {
         margin-bottom: 20px;
         color: #f78d15; }
       .we-are-making .text-part .count .count-sing h2 {
-        color: #ff5722; }
+        color: #f78d15; }
 
 /* =================== Blog Style Starts Here =================== */
 .blog {
@@ -598,7 +603,7 @@ header .headwe-nav {
   margin-bottom: 10px; }
 
 .blog .blog-singe .blog-content-tab a {
-  color: #ff5722;
+  color: #f78d15;
   font-size: 12px; }
 
 .blog .blog-singe .blog-content-tab a i {
@@ -645,7 +650,7 @@ header .headwe-nav {
 
 .footer-ablove {
   padding: 30px;
-  background-color: #ff5722;
+  background-color: #f78d15;
   color: #FFF;
   font-size: 1.5rem; }
 
@@ -703,7 +708,7 @@ header .headwe-nav {
     display: none;
   }
   .LogoTagline {
-    font-size: 22px;
+    font-size: 20px;
 }
 }
 
