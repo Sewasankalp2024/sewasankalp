@@ -41,7 +41,7 @@
         <div id="menu-jk" class="headwe-nav container-fluid">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-9 nav-div">
+                    <div class="col-lg-8 nav-div">
                         <nav class="navbar navbar-expand-lg navbar-light">
 
                             <div class="d-flex align-items-center">
@@ -58,21 +58,21 @@
                             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Home </a>
+                                        <a class="nav-link" href="index.html">Home </a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                            data-toggle="dropdown" aria-haspopup="true"
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                            role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">Objective</a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="#">Education</a>
                                             <a class="dropdown-item" href="#">Health</a>
-                                            <a class="dropdown-item" href="education.html">Environment</a>
+                                            <a class="dropdown-item" href="#">Environment</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                            data-toggle="dropdown" aria-haspopup="true"
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                            role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">Campaign</a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="#">Recent</a>
@@ -90,7 +90,7 @@
                         </nav>
                     </div>
 
-                    <div class="col-lg-3 d-none d-lg-block social-div">
+                    <div class="col-lg-4 d-none d-lg-block social-div">
                         <ul class="ulright">
                             <li><a href="https://www.facebook.com/profile.php?id=61560728081587&amp;mibextid=ZbWKwL"
                                     target="_blank"><i class=" fab fa-facebook"></i></a></li>
@@ -100,6 +100,12 @@
                                     target="_blank"><i class=" fab fa-youtube"></i></a></li>
                             <li><a href="#" target=""><i class=" fab fa-twitter"></i></a></li>
                             <li><a href="#" target=""><i class=" fab fa-linkedin"></i></a></li>
+                            <li>
+                                <select id="language-select">
+                                    <option value="en">English</option>
+                                    <option value="hi">Hindi</option>
+                                </select>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -293,6 +299,34 @@
                 <a><i class="fab fa-facebook-f"></i></a>
         </span>
         </div>
+
+        <script>
+            const translateWebsite = (targetLang) => {
+                const elements = document.body.querySelectorAll('*:not(script):not(style)');
+                elements.forEach((element) => {
+                    if (element.children.length === 0 && element.innerText.trim() !== '') {
+                        const originalText = element.innerText.trim();
+
+                        const apiUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(originalText)}`;
+
+                        fetch(apiUrl)
+                            .then(response => response.json())
+                            .then(data => {
+                                const translatedText = data[0][0][0];
+                                element.innerText = translatedText;
+                            })
+                            .catch(error => {
+                                console.error('Error translating:', originalText, error);
+                            });
+                    }
+                });
+            };
+
+            document.getElementById('language-select').addEventListener('change', (event) => {
+                const targetLang = event.target.value;
+                translateWebsite(targetLang);
+            });
+        </script>
 
     </div>
 
